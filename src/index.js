@@ -9,18 +9,18 @@ const initialState = {
   books: [
     {
       id: 1,
-      title: "Pride and Prejudice",
-      category: "Classics"
+      title: "Long Walk to Freedom",
+      category: "Biography"
     },
     {
       id: 2,
       title: "Harry Potter and the Chamber of Secrets",
-      category: "Children"
+      category: "Kids"
     },
     {
       id: 3,
-      title: "Das Kapital",
-      category: "Non-fiction"
+      title: "The Shining",
+      category: "Horror"
     }
   ]
 };
