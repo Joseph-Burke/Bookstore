@@ -1,10 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
-import { removeBook } from '../actions/index';
 
 const Book = props => {
-  const { remove, book } = props;
+  const { book, removeBook } = props;
   const { id, title, category } = book;
   return (
     <tr>
@@ -14,9 +12,7 @@ const Book = props => {
       <td>
         <button
           type="button"
-          onClick={() => {
-            remove(book);
-          }}
+          onClick={removeBook}
         >
           Remove Book
         </button>
@@ -31,15 +27,7 @@ Book.propTypes = {
     title: PropTypes.string.isRequired,
     category: PropTypes.string.isRequired,
   }).isRequired,
-  remove: PropTypes.func.isRequired,
+  removeBook: PropTypes.func.isRequired,
 };
 
-const mapDispatchToProps = dispatch => ({
-  remove: book => {
-    dispatch(removeBook(book));
-  },
-});
-
-const connectedBook = connect(null, mapDispatchToProps)(Book);
-
-export default connectedBook;
+export default Book;
