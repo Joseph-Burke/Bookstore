@@ -1,11 +1,11 @@
 import React from 'react';
-import ConnectedBooksList from '../components/BooksList';
+import BooksList from '../components/BooksList';
 import BooksForm from '../components/BooksForm';
 
 const App = () => (
   <div>
-    <ConnectedBooksList />
-    <BooksForm />
+    <BooksList/>
+    <BooksForm/>
   </div>
 );
 

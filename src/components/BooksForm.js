@@ -1,4 +1,7 @@
 import React, { Component } from "react";
+import { createBook } from "../actions/index";
+import { connect } from "react-redux";
+import generateRandomID from '../helpers/generateRandomID';
 
 const CATEGORIES = [
   { name: "Action", id: 1 },
@@ -10,23 +13,35 @@ const CATEGORIES = [
   { name: "Sci-Fi", id: 7 }
 ];
 
-export default class BooksForm extends Component {
+class BooksForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
       title: "",
       category: '',
     };
+    this.handleInput = this.handleInput.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  handleInput(event) {
+  handleInput( event ) {
     const { target } = event;
     const { id } = target;
     this.setState({
       title: (id === 'title' ? target.value : this.state.title ),
       category: (id === 'category' ? target.value : this.state.category )
     });
-  }
+  };
+
+  handleSubmit() {
+    const { addNewBook } = this.props;
+    const { title, category } = this.state;
+    addNewBook({
+      id: generateRandomID(),
+      title: title,
+      category: category
+    });
+  };
 
   render() {
     return (
@@ -48,8 +63,23 @@ export default class BooksForm extends Component {
           ;
         </select>
 
-        <button type="button">Submit</button>
+        <button type="button" onClick={this.handleSubmit}>Submit</button>
       </form>
     );
   }
-}
+};
+
+const mapDispatchToProps = dispatch => {
+  return {
+    addNewBook: book => {
+      dispatch(createBook(book));
+    },
+  }
+};
+
+const ConnectedBooksForm = connect(
+  null,
+  mapDispatchToProps  
+)(BooksForm);
+
+export default ConnectedBooksForm;

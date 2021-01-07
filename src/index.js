@@ -4,8 +4,7 @@ import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 import App from './containers/App';
 import combinedReducer from './reducers/index';
-
-const generateRandomID = () => Math.floor(Math.random() * 10000);
+import generateRandomID from './helpers/generateRandomID';
 
 const initialState = {
   books: [
