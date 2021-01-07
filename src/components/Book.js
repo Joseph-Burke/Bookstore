@@ -12,7 +12,7 @@ const Book = props => {
       <td>
         <button
           type="button"
-          onClick={removeBook}
+          onClick={removeBook.bind(this, book)}
         >
           Remove Book
         </button>

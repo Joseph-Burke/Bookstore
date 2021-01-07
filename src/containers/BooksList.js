@@ -1,42 +1,28 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import Book from '../components/Book';
 import { removeBook } from '../actions/index';
 
-class BooksList extends Component {
-  constructor(props) {
-    super(props);
-    this.handleRemoveBook = this.handleRemoveBook.bind(this);
-  };
-
-  handleRemoveBook(book) {
-    this.props.removeBook(book);
-  };
-
-  render() {
-    const { books } = this.props;
-    return (
-      <table>
-        <thead>
-          <tr>
-            <th>Book ID</th>
-            <th>Title</th>
-            <th>Category</th>
-          </tr>
-        </thead>
-        <tbody>
-          {books.map(book => (
-            <Book 
-              key={book.id} 
-              book={book} 
-              removeBook={this.handleRemoveBook.bind(this, book)} />
-          ))}
-        </tbody>
-      </table>
-    );
-  }
-}
+const BooksList = props => {
+  const { books, handleRemoveBook } = props;
+  return (
+    <table>
+      <thead>
+        <tr>
+          <th>Book ID</th>
+          <th>Title</th>
+          <th>Category</th>
+        </tr>
+      </thead>
+      <tbody>
+        {books.map(book => (
+          <Book key={book.id} book={book} removeBook={handleRemoveBook} />
+        ))}
+      </tbody>
+    </table>
+  );
+};
 
 BooksList.propTypes = {
   books: PropTypes.arrayOf(
@@ -46,6 +32,7 @@ BooksList.propTypes = {
       category: PropTypes.string.isRequired,
     }).isRequired,
   ).isRequired,
+  handleRemoveBook: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = state => ({
@@ -53,11 +40,14 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  removeBook: book => {
+  handleRemoveBook: book => {
     dispatch(removeBook(book));
   },
 });
 
-const ConnectedBooksList = connect(mapStateToProps, mapDispatchToProps)(BooksList);
+const ConnectedBooksList = connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(BooksList);
 
 export default ConnectedBooksList;
