@@ -18,7 +18,7 @@ class BooksForm extends Component {
     super(props);
     this.state = {
       title: "",
-      category: '',
+      category: 'Action',
     };
     this.handleInput = this.handleInput.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -41,21 +41,30 @@ class BooksForm extends Component {
       title: title,
       category: category
     });
+    this.setState({
+      title: "",
+      category: 'Action',
+    })
   };
 
   render() {
     return (
-      <form onChange={this.handleInput.bind(this)}>
+      <form>
         <label htmlFor="title">
           Book Title:
           <input
             id="title"
             name="title"
-            placeholder="Tom Sawyer"
+            onChange={this.handleInput.bind(this)}
+            value={this.state.title}
           />
         </label>
 
-        <select id="category">
+        <select 
+          id="category"
+          onChange={this.handleInput.bind(this)}
+          value={this.state.category}
+          >
           {CATEGORIES.map(category => {
             const { name, id } = category;
             return <option key={id}>{name}</option>;
