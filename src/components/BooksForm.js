@@ -1,50 +1,52 @@
-import React, { Component } from "react";
-import { createBook } from "../actions/index";
-import { connect } from "react-redux";
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import propTypes from 'prop-types';
+import { createBook } from '../actions/index';
 import generateRandomID from '../helpers/generateRandomID';
 
 const CATEGORIES = [
-  { name: "Action", id: 1 },
-  { name: "Biography", id: 2 },
-  { name: "History", id: 3 },
-  { name: "Horror", id: 4 },
-  { name: "Kids", id: 5 },
-  { name: "Learning", id: 6 },
-  { name: "Sci-Fi", id: 7 }
+  { name: 'Action', id: 1 },
+  { name: 'Biography', id: 2 },
+  { name: 'History', id: 3 },
+  { name: 'Horror', id: 4 },
+  { name: 'Kids', id: 5 },
+  { name: 'Learning', id: 6 },
+  { name: 'Sci-Fi', id: 7 },
 ];
 
 class BooksForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      title: "",
+      title: '',
       category: 'Action',
     };
     this.handleInput = this.handleInput.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  handleInput( event ) {
+  handleInput(event) {
     const { target } = event;
     const { id } = target;
-    this.setState({
-      title: (id === 'title' ? target.value : this.state.title ),
-      category: (id === 'category' ? target.value : this.state.category )
-    });
-  };
+    this.setState(previousState => ({
+      title: id === 'title' ? target.value : previousState.title,
+      category: id === 'category' ? target.value : previousState.category,
+    }));
+  }
 
   handleSubmit() {
     const { addNewBook } = this.props;
     const { title, category } = this.state;
     addNewBook({
       id: generateRandomID(),
-      title: title,
-      category: category
+      title,
+      category,
     });
-    this.setState({title: "", category: 'Action'});
-  };
+    this.setState({ title: '', category: 'Action' });
+  }
 
   render() {
+    const { handleInput, state } = this;
     return (
       <form>
         <label htmlFor="title">
@@ -52,16 +54,16 @@ class BooksForm extends Component {
           <input
             id="title"
             name="title"
-            onChange={this.handleInput.bind(this)}
-            value={this.state.title}
+            onChange={handleInput.bind(this)}
+            value={state.title}
           />
         </label>
 
-        <select 
+        <select
           id="category"
-          onChange={this.handleInput.bind(this)}
-          value={this.state.category}
-          >
+          onChange={handleInput.bind(this)}
+          value={state.category}
+        >
           {CATEGORIES.map(category => {
             const { name, id } = category;
             return <option key={id}>{name}</option>;
@@ -69,23 +71,24 @@ class BooksForm extends Component {
           ;
         </select>
 
-        <button type="button" onClick={this.handleSubmit}>Submit</button>
+        <button type="button" onClick={this.handleSubmit}>
+          Submit
+        </button>
       </form>
     );
   }
+}
+
+BooksForm.propTypes = {
+  addNewBook: propTypes.func.isRequired,
 };
 
-const mapDispatchToProps = dispatch => {
-  return {
-    addNewBook: book => {
-      dispatch(createBook(book));
-    },
-  }
-};
+const mapDispatchToProps = dispatch => ({
+  addNewBook: book => {
+    dispatch(createBook(book));
+  },
+});
 
-const ConnectedBooksForm = connect(
-  null,
-  mapDispatchToProps  
-)(BooksForm);
+const ConnectedBooksForm = connect(null, mapDispatchToProps)(BooksForm);
 
 export default ConnectedBooksForm;

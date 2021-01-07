@@ -12,7 +12,6 @@ const BooksList = props => {
           <th>Book ID</th>
           <th>Title</th>
           <th>Category</th>
-          <th></th>
         </tr>
       </thead>
       <tbody>
@@ -31,7 +30,7 @@ BooksList.propTypes = {
     PropTypes.shape({
       id: PropTypes.number.isRequired,
       title: PropTypes.string.isRequired,
-      category: PropTypes.string.isRequired
+      category: PropTypes.string.isRequired,
     }).isRequired,
   ).isRequired,
 };

@@ -5,7 +5,7 @@ const booksReducer = (bookList = [], action) => {
     case CREATE_BOOK:
       return [...bookList, action.book];
     case REMOVE_BOOK:
-      return bookList.filter(book => book !== action.book)
+      return bookList.filter(book => book !== action.book);
     default:
       return bookList;
   }

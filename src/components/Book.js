@@ -1,27 +1,28 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { removeBook } from '../actions/index';
 
-class Book extends Component {
-  constructor(props) {
-    super(props);
-  }
-
-  render() {
-    const { remove, book } = this.props;
-    const { id, title, category } = book;
-    return (
-      <tr>
-        <td>{id}</td>
-        <td>{title}</td>
-        <td>{category}</td>
-        <td>
-          <button onClick={remove.bind(book, this)}>Remove Book</button>
-        </td>
-      </tr>
-    );
-  };
+const Book = props => {
+  const { remove, book } = props;
+  const { id, title, category } = book;
+  return (
+    <tr>
+      <td>{id}</td>
+      <td>{title}</td>
+      <td>{category}</td>
+      <td>
+        <button
+          type="button"
+          onClick={() => {
+            remove(book);
+          }}
+        >
+          Remove Book
+        </button>
+      </td>
+    </tr>
+  );
 };
 
 Book.propTypes = {
@@ -30,20 +31,15 @@ Book.propTypes = {
     title: PropTypes.string.isRequired,
     category: PropTypes.string.isRequired,
   }).isRequired,
+  remove: PropTypes.func.isRequired,
 };
 
-const mapDispatchToProps = dispatch => {
-  return {
-    remove: (book) => {
-      const bookObj = book.props.book;
-      dispatch(removeBook(bookObj));
-    }
-  }
-}
+const mapDispatchToProps = dispatch => ({
+  remove: book => {
+    dispatch(removeBook(book));
+  },
+});
 
-const connectedBook = connect(
-  null,
-  mapDispatchToProps
-)(Book);
+const connectedBook = connect(null, mapDispatchToProps)(Book);
 
 export default connectedBook;
