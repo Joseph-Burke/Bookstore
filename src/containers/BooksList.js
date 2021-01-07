@@ -15,13 +15,9 @@ const BooksList = props => {
         </tr>
       </thead>
       <tbody>
-
-        {
-          books.map(
-            book => <Book key={book.id} book={book} />,
-          )
-        }
-
+        {books.map(book => (
+          <Book key={book.id} book={book} />
+        ))}
       </tbody>
     </table>
   );
@@ -31,12 +27,9 @@ BooksList.propTypes = {
   books: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.number.isRequired,
-      book: PropTypes.shape({
-        id: PropTypes.number.isRequired,
-        title: PropTypes.string.isRequired,
-        category: PropTypes.string.isRequired,
-      }).isRequired,
-    }),
+      title: PropTypes.string.isRequired,
+      category: PropTypes.string.isRequired,
+    }).isRequired,
   ).isRequired,
 };
 
@@ -44,8 +37,6 @@ const mapStateToProps = state => ({
   books: state.books,
 });
 
-const ConnectedBooksList = connect(
-  mapStateToProps,
-)(BooksList);
+const ConnectedBooksList = connect(mapStateToProps)(BooksList);
 
 export default ConnectedBooksList;
