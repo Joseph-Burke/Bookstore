@@ -1,9 +1,8 @@
 import { combineReducers } from 'redux';
-import { createBook, removeBook } from '../actions/index'
+import booksReducer from "./books";
 
-export default combineReducers(
-  {
-    add: createBook,
-    remove: removeBook
-  }
-);
+const combinedReducer = combineReducers({
+  books: booksReducer
+});
+
+export default combinedReducer;
