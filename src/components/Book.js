@@ -34,7 +34,7 @@ Book.propTypes = {
 
 const mapDispatchToProps = dispatch => {
   return {
-    remove: (book, event) => {
+    remove: (book) => {
       const bookObj = book.props.book;
       dispatch(removeBook(bookObj));
     }

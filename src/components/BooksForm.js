@@ -41,10 +41,7 @@ class BooksForm extends Component {
       title: title,
       category: category
     });
-    this.setState({
-      title: "",
-      category: 'Action',
-    })
+    this.setState({title: "", category: 'Action'});
   };
 
   render() {
