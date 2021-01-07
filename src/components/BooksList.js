@@ -31,12 +31,9 @@ BooksList.propTypes = {
   books: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.number.isRequired,
-      book: PropTypes.shape({
-        id: PropTypes.number.isRequired,
-        title: PropTypes.string.isRequired,
-        category: PropTypes.string.isRequired,
-      }).isRequired,
-    }),
+      title: PropTypes.string.isRequired,
+      category: PropTypes.string.isRequired
+    }).isRequired,
   ).isRequired,
 };
 
