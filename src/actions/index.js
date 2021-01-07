@@ -1,16 +1,16 @@
 const [CREATE_BOOK, REMOVE_BOOK] = ['CREATE_BOOK', 'REMOVE_BOOK'];
 
-const createBook = bookObj => {
+const createBook = book => {
   return {
     type: CREATE_BOOK,
-    data: bookObj
+    book
   }
 };
 
-const removeBook = bookObj => {
+const removeBook = book => {
   return {
     type: REMOVE_BOOK,
-    data: bookObj
+    book
   }
 };
 

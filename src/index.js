@@ -5,20 +5,24 @@ import { createStore } from "redux";
 import { Provider } from "react-redux";
 import combinedReducer from "./reducers/index";
 
+const generateRandomID = () => {
+  return Math.floor(Math.random() * 10000)
+}
+
 const initialState = {
   books: [
     {
-      id: 1,
+      id: generateRandomID(),
       title: "Long Walk to Freedom",
       category: "Biography"
     },
     {
-      id: 2,
+      id: generateRandomID(),
       title: "Harry Potter and the Chamber of Secrets",
       category: "Kids"
     },
     {
-      id: 3,
+      id: generateRandomID(),
       title: "The Shining",
       category: "Horror"
     }
