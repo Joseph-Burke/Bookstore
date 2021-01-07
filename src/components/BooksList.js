@@ -1,7 +1,7 @@
-import React, { Component } from "react";
-import { dispatch } from "redux";
-import { connect } from "react-redux";
-import Book from "./Book";
+import React from 'react';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+import Book from './Book';
 
 const BooksList = props => {
   const { books } = props;
@@ -18,9 +18,7 @@ const BooksList = props => {
 
         {
           books.map(
-            book => {
-              return <Book book={book} />
-            }
+            book => <Book key={book.id} book={book} />,
           )
         }
 
@@ -29,14 +27,25 @@ const BooksList = props => {
   );
 };
 
-const mapStateToProps = state => {
-  return {
-    books: state.books
-  };
+BooksList.propTypes = {
+  books: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number.isRequired,
+      book: PropTypes.shape({
+        id: PropTypes.number.isRequired,
+        title: PropTypes.string.isRequired,
+        category: PropTypes.string.isRequired,
+      }).isRequired,
+    }),
+  ).isRequired,
 };
 
+const mapStateToProps = state => ({
+  books: state.books,
+});
+
 const ConnectedBooksList = connect(
-  mapStateToProps
-  )(BooksList);
+  mapStateToProps,
+)(BooksList);
 
 export default ConnectedBooksList;

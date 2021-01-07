@@ -1,32 +1,30 @@
-import React from "react";
-import ReactDOM from "react-dom";
-import App from "./containers/App";
-import { createStore } from "redux";
-import { Provider } from "react-redux";
-import combinedReducer from "./reducers/index";
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { createStore } from 'redux';
+import { Provider } from 'react-redux';
+import App from './containers/App';
+import combinedReducer from './reducers/index';
 
-const generateRandomID = () => {
-  return Math.floor(Math.random() * 10000)
-}
+const generateRandomID = () => Math.floor(Math.random() * 10000);
 
 const initialState = {
   books: [
     {
       id: generateRandomID(),
-      title: "Long Walk to Freedom",
-      category: "Biography"
+      title: 'Long Walk to Freedom',
+      category: 'Biography',
     },
     {
       id: generateRandomID(),
-      title: "Harry Potter and the Chamber of Secrets",
-      category: "Kids"
+      title: 'Harry Potter and the Chamber of Secrets',
+      category: 'Kids',
     },
     {
       id: generateRandomID(),
-      title: "The Shining",
-      category: "Horror"
-    }
-  ]
+      title: 'The Shining',
+      category: 'Horror',
+    },
+  ],
 };
 
 const store = createStore(combinedReducer, initialState);
@@ -37,5 +35,5 @@ ReactDOM.render(
       <App />
     </Provider>
   </React.StrictMode>,
-  document.getElementById("root")
+  document.getElementById('root'),
 );
