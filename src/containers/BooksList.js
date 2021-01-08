@@ -5,7 +5,16 @@ import Book from '../components/Book';
 import { removeBook } from '../actions/index';
 
 const BooksList = props => {
-  const { books, handleRemoveBook } = props;
+  const { books, filter, handleRemoveBook } = props;
+  let filteredBooks = books;
+  if (filter !== 'All') {
+    filteredBooks = books.filter(book => book.category === filter);
+  };
+
+  const bookComponents = filteredBooks.map(book => (
+    <Book key={book.id} book={book} removeBook={handleRemoveBook} />
+  ));
+
   return (
     <table>
       <thead>
@@ -15,11 +24,7 @@ const BooksList = props => {
           <th>Category</th>
         </tr>
       </thead>
-      <tbody>
-        {books.map(book => (
-          <Book key={book.id} book={book} removeBook={handleRemoveBook} />
-        ))}
-      </tbody>
+      <tbody>{bookComponents}</tbody>
     </table>
   );
 };
@@ -37,6 +42,7 @@ BooksList.propTypes = {
 
 const mapStateToProps = state => ({
   books: state.books,
+  filter: state.filter
 });
 
 const mapDispatchToProps = dispatch => ({
