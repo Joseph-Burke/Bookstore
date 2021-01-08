@@ -1,7 +1,5 @@
-import { connect } from 'react-redux';
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
-import { changeFilter } from '../actions/index';
 
 const OPTIONS = [
   { name: 'All', id: 1 },
@@ -14,25 +12,16 @@ const OPTIONS = [
   { name: 'Sci-Fi', id: 8 },
 ];
 
-class CategoryFilter extends Component {
-  constructor(props) {
-    super(props);
-  }
-
-  render() {
-    const { props } = this;
-    const { handleChange } = props;
-    const optionElements = OPTIONS.map(({ name, id }) => <option key={id}>{name}</option>);
-    return (
-      <select onChange={handleChange.bind(this)}>
-        {optionElements}
-      </select>
-    );
-  }
-}
+const CategoryFilter = props => {
+  const { handleChange } = props;
+  const optionElements = OPTIONS.map(({ name, id }) => (
+    <option key={id}>{name}</option>
+  ));
+  return <select onChange={handleChange.bind(this)}>{optionElements}</select>;
+};
 
 CategoryFilter.propTypes = {
-  changeFilter: PropTypes.func.isRequired,
+  handleChange: PropTypes.func.isRequired,
 };
 
 export default CategoryFilter;
