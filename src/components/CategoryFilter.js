@@ -17,27 +17,14 @@ const OPTIONS = [
 class CategoryFilter extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      filter: 'All',
-    };
-  }
-
-  handleChange(event) {
-    const { value } = event.target;
-    const { changeFilter } = this.props;
-    const { filter } = this.state;
-
-    this.setState({ filter: value }, () => {
-      changeFilter(filter);
-    });
   }
 
   render() {
-    const { handleChange, state } = this;
-    const { filter } = state;
+    const { props } = this;
+    const { handleChange } = props;
     const optionElements = OPTIONS.map(({ name, id }) => <option key={id}>{name}</option>);
     return (
-      <select value={filter} onChange={handleChange.bind(this)}>
+      <select onChange={handleChange.bind(this)}>
         {optionElements}
       </select>
     );
@@ -48,10 +35,4 @@ CategoryFilter.propTypes = {
   changeFilter: PropTypes.func.isRequired,
 };
 
-const mapDispatchToProps = dispatch => ({
-  changeFilter: filter => {
-    dispatch(changeFilter(filter));
-  },
-});
-
-export default connect(null, mapDispatchToProps)(CategoryFilter);
+export default CategoryFilter;
