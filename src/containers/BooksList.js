@@ -9,7 +9,7 @@ const BooksList = props => {
   let filteredBooks = books;
   if (filter !== 'All') {
     filteredBooks = books.filter(book => book.category === filter);
-  };
+  }
 
   const bookComponents = filteredBooks.map(book => (
     <Book key={book.id} book={book} removeBook={handleRemoveBook} />
@@ -38,11 +38,12 @@ BooksList.propTypes = {
     }).isRequired,
   ).isRequired,
   handleRemoveBook: PropTypes.func.isRequired,
+  filter: PropTypes.string.isRequired,
 };
 
 const mapStateToProps = state => ({
   books: state.books,
-  filter: state.filter
+  filter: state.filter,
 });
 
 const mapDispatchToProps = dispatch => ({
