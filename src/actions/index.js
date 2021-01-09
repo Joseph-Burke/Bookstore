@@ -1,15 +1,16 @@
-const [CREATE_BOOK, REMOVE_BOOK] = ['CREATE_BOOK', 'REMOVE_BOOK'];
+export const [CREATE_BOOK, REMOVE_BOOK, CHANGE_FILTER] = ['CREATE_BOOK', 'REMOVE_BOOK', 'CHANGE_FILTER'];
 
-const createBook = book => ({
+export const changeFilter = filter => ({
+  type: CHANGE_FILTER,
+  filter,
+});
+
+export const createBook = book => ({
   type: CREATE_BOOK,
   book,
 });
 
-const removeBook = book => ({
+export const removeBook = book => ({
   type: REMOVE_BOOK,
   book,
 });
-
-export {
-  CREATE_BOOK, REMOVE_BOOK, createBook, removeBook,
-};
