@@ -24,11 +24,25 @@ const BooksList = props => {
   return (
     <>
       <header className="header">
-        <CategoryFilter
-          handleChange={event => {
-            handleFilterChange(event);
-          }}
-        />
+        <div className="left-side">
+          <h2 className="header-title">Bookstore CMS</h2>
+          <ul className="header-list">
+            <li>Books</li>
+            <li>
+              <CategoryFilter
+                handleChange={event => {
+                  handleFilterChange(event);
+                }}
+              />
+            </li>
+          </ul>
+        </div>
+
+        <div className="right-side">
+          <div class="account-icon">
+            <i className="fa fa-user"></i>
+          </div>
+        </div>
       </header>
       <section className="books-list">{bookComponents}</section>
     </>
