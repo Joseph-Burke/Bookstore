@@ -1,6 +1,27 @@
 #root {
   display: flex;
   flex-direction: column; }
+  #root .header {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 0;
+    padding: 23px 99px 27px 100px;
+    background-color: white; }
+    #root .header .left-side {
+      display: flex;
+      align-items: center; }
+      #root .header .left-side .header-title {
+        margin: 6px 47px 2px 0;
+        font-size: 30px;
+        font-weight: bold;
+        color: #4590ff; }
+      #root .header .left-side .header-list {
+        list-style-type: none; }
+        #root .header .left-side .header-list li {
+          display: inline;
+          letter-spacing: 1.9px;
+          font-size: 13px;
+          color: #121212; }
   #root .books-list {
     display: flex;
     flex-direction: column;
@@ -8,42 +29,59 @@
     background-color: #fafafa; }
     #root .books-list .book-card {
       display: flex;
+      padding: 32px 27px;
       margin: 37px;
       background-color: white;
       border: solid 1px #e8e8e8;
       border-radius: 4px; }
       #root .books-list .book-card .left-side {
         flex: 2; }
-        #root .books-list .book-card .left-side .book-details {
-          padding: 32px 27px; }
-          #root .books-list .book-card .left-side .book-details .category-sub-title {
-            margin: 0;
-            font-size: 14px;
-            color: #121212;
-            opacity: 0.2; }
-          #root .books-list .book-card .left-side .book-details .title {
-            margin: 3px 0 0 0;
-            font-size: 22px;
-            letter-spacing: -0.2px; }
-          #root .books-list .book-card .left-side .book-details .options {
-            display: flex;
-            list-style-type: none;
-            padding: 0; }
-            #root .books-list .book-card .left-side .book-details .options li {
-              margin: 3px 15px 2px 0;
-              color: #4386bf;
-              font-weight: 300;
-              font-size: 14px; }
-            #root .books-list .book-card .left-side .book-details .options button {
-              appearance: none;
-              background: none;
-              border: none;
-              color: #4386bf; }
-            #root .books-list .book-card .left-side .book-details .options li:hover,
-            #root .books-list .book-card .left-side .book-details .options button:hover {
-              text-decoration: underline;
-              cursor: pointer; }
+        #root .books-list .book-card .left-side .book-details .category-sub-title {
+          margin: 0;
+          font-size: 14px;
+          color: #121212;
+          opacity: 0.2; }
+        #root .books-list .book-card .left-side .book-details .title {
+          margin: 3px 0 0 0;
+          font-size: 22px;
+          letter-spacing: -0.2px; }
+        #root .books-list .book-card .left-side .book-details .options {
+          display: flex;
+          list-style-type: none;
+          padding: 0; }
+          #root .books-list .book-card .left-side .book-details .options li {
+            margin: 3px 15px 2px 0;
+            color: #4386bf;
+            font-weight: 300;
+            font-size: 14px; }
+          #root .books-list .book-card .left-side .book-details .options button {
+            appearance: none;
+            background: none;
+            border: none;
+            color: #4386bf; }
+          #root .books-list .book-card .left-side .book-details .options li:hover,
+          #root .books-list .book-card .left-side .book-details .options button:hover {
+            text-decoration: underline;
+            cursor: pointer; }
       #root .books-list .book-card .right-side {
         flex: 1; }
+        #root .books-list .book-card .right-side .chapter-details h6 {
+          margin: 1px 0;
+          opacity: 0.5;
+          font-size: 13px;
+          font-weight: 300;
+          color: #121212;
+          font-variant: small-caps; }
+        #root .books-list .book-card .right-side .chapter-details .progress-button {
+          background-color: #0290ff;
+          border: none;
+          width: 184px;
+          height: 33px;
+          border-radius: 3px;
+          font-size: 13px;
+          font-weight: 300;
+          letter-spacing: 0.5px;
+          text-align: center;
+          color: white; }
 
 /*# sourceMappingURL=index.css.map */

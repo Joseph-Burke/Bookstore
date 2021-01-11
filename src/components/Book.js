@@ -24,9 +24,9 @@ const Book = props => {
       </div>
       <div className="right-side">
         <div className="chapter-details">
-          <h6>Current Chapter</h6>
-          <p>Chapter 17</p>
-          <button>Update Progress</button>
+          <h6 class="chapter-title">CURRENT CHAPTER</h6>
+          <p class="chapter-text">Chapter 17</p>
+          <button class="progress-button">Update Progress</button>
         </div>
       </div>
     </div>

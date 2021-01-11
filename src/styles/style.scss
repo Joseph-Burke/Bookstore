@@ -2,9 +2,40 @@
   display: flex;
   flex-direction: column;
 
-  // .header {
+  .header {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 0;
+    padding: 23px 99px 27px 100px;
+    background-color: white;
 
-  // }
+    .left-side {
+      display: flex;
+      align-items: center;
+
+      .header-title {
+        margin: 6px 47px 2px 0;
+        font-size: 30px;
+        font-weight: bold;
+        color: #4590ff;
+      }
+
+      .header-list {
+        list-style-type: none;
+
+        li {
+          display: inline;
+          letter-spacing: 1.9px;
+          font-size: 13px;
+          color: #121212;
+        }
+      }
+    }
+
+    // .right-side {
+    //   .profile-icon
+    // }
+  }
 
   .books-list {
     display: flex;
@@ -14,6 +45,7 @@
 
     .book-card {
       display: flex;
+      padding: 32px 27px;
       margin: 37px;
       background-color: white;
       border: solid 1px #e8e8e8;
@@ -23,8 +55,6 @@
         flex: 2;
 
         .book-details {
-          padding: 32px 27px;
-
           .category-sub-title {
             margin: 0;
             font-size: 14px;
@@ -68,6 +98,31 @@
 
       .right-side {
         flex: 1;
+
+        .chapter-details {
+          h6 {
+            margin: 1px 0;
+            opacity: 0.5;
+            // font-family: RobotoSlab;
+            font-size: 13px;
+            font-weight: 300;
+            color: #121212;
+            font-variant: small-caps;
+          }
+          .progress-button {
+            background-color: rgb(2, 144, 255);
+            border: none;
+            width: 184px;
+            height: 33px;
+            border-radius: 3px;
+            // font-family: RobotoSlab;
+            font-size: 13px;
+            font-weight: 300;
+            letter-spacing: 0.5px;
+            text-align: center;
+            color: rgb(255, 255, 255);
+          }
+        }
       }
     }
   }
