@@ -10,18 +10,21 @@ const initialState = {
   books: [
     {
       id: generateRandomID(),
-      title: 'Long Walk to Freedom',
-      category: 'Biography',
+      title: 'The Hunger Games',
+      category: 'Action',
+      author: 'Suzanne Collins',
     },
     {
       id: generateRandomID(),
-      title: 'Harry Potter and the Chamber of Secrets',
-      category: 'Kids',
+      title: 'Dune',
+      category: 'Science Fiction',
+      author: 'Frank Herbert',
     },
     {
       id: generateRandomID(),
-      title: 'The Shining',
-      category: 'Horror',
+      title: 'Capital in the Twenty-First Century',
+      category: 'Economy',
+      author: 'Suzanne Collins',
     },
   ],
 };
