@@ -15,8 +15,8 @@
     "web-vitals": "^0.2.4"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
+    "start": "react-scripts start; npx sass src/styles/style.scss:public/index.css",
+    "build": "react-scripts build; npx sass src/styles/style.scss:public/index.css",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
