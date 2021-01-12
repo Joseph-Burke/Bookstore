@@ -82,7 +82,7 @@
 
     .book-card {
       display: flex;
-      padding: 32px 27px;
+      padding: 27px;
       margin: 10px 0;
       background-color: white;
       border: solid 1px #e8e8e8;
@@ -90,6 +90,9 @@
 
       .left-side {
         flex: 2;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
 
         .book-details {
           .category-sub-title {
@@ -105,6 +108,13 @@
             letter-spacing: -0.2px;
           }
 
+          .author {
+            margin: 0;
+            color: #4386bf;
+            font-size: 14px;
+            font-weight: 400;
+          }
+
           .options {
             display: flex;
             list-style-type: none;
@@ -113,7 +123,7 @@
             li {
               margin: 3px 15px 2px 0;
               color: #4386bf;
-              font-weight: 300;
+              font-weight: 500;
               font-size: 14px;
             }
 
@@ -122,6 +132,8 @@
               background: none;
               border: none;
               color: #4386bf;
+              font-weight: 300;
+              font-size: 14px;
             }
 
             li:hover,
@@ -129,6 +141,34 @@
               text-decoration: underline;
               cursor: pointer;
             }
+          }
+        }
+
+        .completion-display {
+          padding-right: 150px;
+          display: flex;
+          align-items: center;
+
+          .circle {
+            width: 60px;
+            height: 60px;
+            border: 6px solid grey;
+            border-radius: 100%;
+            margin-right: 35px;
+          }
+
+          .percentage,
+          .completed {
+            margin: 0;
+          }
+
+          .percentage {
+            font-size: 32px;
+            color: #121212;
+          }
+
+          .completed {
+            font-size: 15px;
           }
         }
       }
@@ -184,10 +224,17 @@
       display: flex;
 
       #title,
+      #category,
+      .submit-button {
+        border-radius: 4px;
+      }
+
+      #title,
       #category {
         font-size: 16px;
         letter-spacing: -0.15px;
-        color: #c4c4c4;
+        color: #666;
+        border: solid 1px #e8e8e8;
       }
 
       #title {
@@ -204,7 +251,7 @@
       .submit-button {
         flex: 4;
         padding: 12.8px 19px 14.2px 22px;
-        border-radius: 3px;
+        border: none;
         background-color: #0290ff;
         font-size: 13px;
         font-weight: bold;
