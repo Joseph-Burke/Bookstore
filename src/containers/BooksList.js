@@ -27,7 +27,7 @@ const BooksList = props => {
         <div className="left-side">
           <h2 className="header-title">Bookstore CMS</h2>
           <ul className="header-list">
-            <li>Books</li>
+            <li>BOOKS</li>
             <li>
               <CategoryFilter
                 handleChange={event => {

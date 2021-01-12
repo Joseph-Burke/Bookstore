@@ -17,7 +17,10 @@ const CategoryFilter = props => {
   const optionElements = OPTIONS.map(({ name, id }) => (
     <option key={id}>{name}</option>
   ));
-  return <select onChange={handleChange.bind(this)}>{optionElements}</select>;
+  return <select onChange={handleChange.bind(this)}>{[
+    <option selected disabled hidden>CATEGORIES</option>,
+    ...optionElements
+  ]}</select>;
 };
 
 CategoryFilter.propTypes = {

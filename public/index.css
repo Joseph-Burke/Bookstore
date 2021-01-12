@@ -1,6 +1,7 @@
 #root {
   display: flex;
-  flex-direction: column; }
+  flex-direction: column;
+  font-family: Montserrat, Arial, Helvetica, sans-serif; }
   #root .header {
     display: flex;
     justify-content: space-between;
@@ -11,26 +12,52 @@
       display: flex;
       align-items: center; }
       #root .header .left-side .header-title {
-        margin: 6px 47px 2px 0;
+        margin: 0;
         font-size: 30px;
         font-weight: bold;
         color: #4590ff; }
       #root .header .left-side .header-list {
-        list-style-type: none; }
-        #root .header .left-side .header-list li {
-          display: inline;
+        margin-left: 50px;
+        padding: 0;
+        list-style-type: none;
+        display: flex;
+        justify-content: space-between;
+        width: 200px; }
+        #root .header .left-side .header-list select {
+          text-transform: uppercase; }
+          #root .header .left-side .header-list select option {
+            text-transform: none; }
+        #root .header .left-side .header-list li,
+        #root .header .left-side .header-list li select {
           letter-spacing: 1.9px;
           font-size: 13px;
+          font-weight: normal;
           color: #121212; }
+        #root .header .left-side .header-list li select {
+          appearance: none;
+          border: none; }
+        #root .header .left-side .header-list li select:focus {
+          outline: none; }
+    #root .header .right-side .account-icon {
+      width: 45px;
+      height: 45px;
+      border: solid 1px #e8e8e8;
+      border-radius: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center; }
+      #root .header .right-side .account-icon .fa-user {
+        color: #0290ff;
+        font-size: 23px; }
   #root .books-list {
     display: flex;
     flex-direction: column;
-    padding: 0 100px;
+    padding: 30px 100px 0;
     background-color: #fafafa; }
     #root .books-list .book-card {
       display: flex;
       padding: 32px 27px;
-      margin: 37px;
+      margin: 10px 0;
       background-color: white;
       border: solid 1px #e8e8e8;
       border-radius: 4px; }
@@ -83,5 +110,39 @@
           letter-spacing: 0.5px;
           text-align: center;
           color: white; }
+  #root .form-section {
+    padding: 50px 100px; }
+    #root .form-section .dividing-line {
+      width: 100%;
+      border: solid 1px #e8e8e8; }
+    #root .form-section .section-title {
+      font-size: 20px;
+      font-weight: bold;
+      letter-spacing: -0.18px;
+      color: #888; }
+    #root .form-section form {
+      display: flex; }
+      #root .form-section form #title,
+      #root .form-section form #category {
+        font-size: 16px;
+        letter-spacing: -0.15px;
+        color: #c4c4c4; }
+      #root .form-section form #title {
+        padding: 13px 17px;
+        flex: 11; }
+      #root .form-section form #category {
+        padding: 13px 17px;
+        flex: 5;
+        margin: 0 40px; }
+      #root .form-section form .submit-button {
+        flex: 4;
+        padding: 12.8px 19px 14.2px 22px;
+        border-radius: 3px;
+        background-color: #0290ff;
+        font-size: 13px;
+        font-weight: bold;
+        letter-spacing: 0.5px;
+        text-align: center;
+        color: #fff; }
 
 /*# sourceMappingURL=index.css.map */
