@@ -15,26 +15,38 @@ const BooksList = props => {
   }
 
   const bookComponents = filteredBooks.map(book => (
-    <Book key={book.id} book={book} removeBook={handleRemoveBook} />
+    <Book
+      key={book.id}
+      book={book}
+      removeBook={handleRemoveBook}
+      className="book"
+    />
   ));
 
   return (
     <>
-      <CategoryFilter
-        handleChange={event => {
-          handleFilterChange(event);
-        }}
-      />
-      <table>
-        <thead>
-          <tr>
-            <th>Book ID</th>
-            <th>Title</th>
-            <th>Category</th>
-          </tr>
-        </thead>
-        <tbody>{bookComponents}</tbody>
-      </table>
+      <header className="header">
+        <div className="left-side">
+          <h2 className="header-title">Bookstore CMS</h2>
+          <ul className="header-list">
+            <li>BOOKS</li>
+            <li>
+              <CategoryFilter
+                handleChange={event => {
+                  handleFilterChange(event);
+                }}
+              />
+            </li>
+          </ul>
+        </div>
+
+        <div className="right-side">
+          <div className="account-icon">
+            <i className="fa fa-user" />
+          </div>
+        </div>
+      </header>
+      <section className="books-list">{bookComponents}</section>
     </>
   );
 };

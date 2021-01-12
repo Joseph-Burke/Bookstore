@@ -6,22 +6,45 @@ import App from './components/App';
 import combinedReducer from './reducers/index';
 import generateRandomID from './helpers/generateRandomID';
 
+// const initialState = {
+//   books: [
+//     {
+//       id: generateRandomID(),
+//       title: 'Long Walk to Freedom',
+//       category: 'Biography',
+//     },
+//     {
+//       id: generateRandomID(),
+//       title: 'Harry Potter and the Chamber of Secrets',
+//       category: 'Kids',
+//     },
+//     {
+//       id: generateRandomID(),
+//       title: 'The Shining',
+//       category: 'Horror',
+//     },
+//   ],
+// };
+
 const initialState = {
   books: [
     {
       id: generateRandomID(),
       title: 'Long Walk to Freedom',
       category: 'Biography',
+      author: 'Nelson Mandela',
     },
     {
       id: generateRandomID(),
       title: 'Harry Potter and the Chamber of Secrets',
       category: 'Kids',
+      author: 'J.K. Rowling',
     },
     {
       id: generateRandomID(),
       title: 'The Shining',
       category: 'Horror',
+      author: 'Stephen King',
     },
   ],
 };

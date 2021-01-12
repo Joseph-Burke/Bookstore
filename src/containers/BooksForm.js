@@ -48,33 +48,36 @@ class BooksForm extends Component {
   render() {
     const { handleInput, state } = this;
     return (
-      <form>
-        <label htmlFor="title">
-          Book Title:
+      <section className="form-section">
+        <div className="dividing-line" />
+        <h4 className="section-title">ADD NEW BOOK</h4>
+
+        <form className="new-book-form">
           <input
             id="title"
             name="title"
+            placeholder="Book title"
             onChange={handleInput.bind(this)}
             value={state.title}
           />
-        </label>
 
-        <select
-          id="category"
-          onChange={handleInput.bind(this)}
-          value={state.category}
-        >
-          {CATEGORIES.map(category => {
-            const { name, id } = category;
-            return <option key={id}>{name}</option>;
-          })}
-          ;
-        </select>
+          <select
+            id="category"
+            onChange={handleInput.bind(this)}
+            value={state.category}
+          >
+            {CATEGORIES.map(category => {
+              const { name, id } = category;
+              return <option key={id}>{name}</option>;
+            })}
+            ;
+          </select>
 
-        <button type="button" onClick={this.handleSubmit}>
-          Submit
-        </button>
-      </form>
+          <button className="submit-button" type="button" onClick={this.handleSubmit}>
+            ADD BOOK
+          </button>
+        </form>
+      </section>
     );
   }
 }
